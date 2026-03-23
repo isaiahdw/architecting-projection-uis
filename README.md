@@ -16,10 +16,11 @@ The skill encodes the Projection framework's patterns, the Slint language refere
 
 ## Installation
 
-Install as a Claude Code plugin:
+Add the marketplace and install the plugin:
 
 ```
-/plugin install https://github.com/isaiahdw/architecting-projection-uis
+/plugin marketplace add isaiahdw/architecting-projection-uis
+/plugin install architecting-projection-uis@isaiahdw-architecting-projection-uis
 ```
 
 The skill is then available in all projects via `/architecting-projection-uis`.
