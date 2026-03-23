@@ -1,8 +1,8 @@
 ---
-name: architecting-slint-uis
+name: architecting-projection-uis
 description: >
-  Designs and reviews production-ready Slint UIs for embedded Elixir applications
-  using the Projection framework. Guides screen design, component hierarchies,
+  Designs and reviews production-ready Projection UIs for embedded Elixir
+  applications rendered by Slint. Guides screen design, component hierarchies,
   schema definitions, intent protocols, router setup, and Elixir-Slint state
   integration. Use when building .slint files, defining ProjectionUI screens,
   configuring Projection routers, creating id_table schemas, wiring handle_event

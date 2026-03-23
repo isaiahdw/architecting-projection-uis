@@ -3,9 +3,9 @@
 This project contains a Claude Code skill for architecting production-ready
 Slint UIs for embedded Elixir applications using the Projection framework.
 
-## Skill: `/architecting-slint-uis`
+## Skill: `/architecting-projection-uis`
 
-Invoke with `/architecting-slint-uis [feature-name] [phase]` where phase is one of:
+Invoke with `/architecting-projection-uis [feature-name] [phase]` where phase is one of:
 
 - **plan** (default) — Requirements, component hierarchy, schema design
 - **build** — Implementation guidance, code generation, wiring
@@ -14,9 +14,9 @@ Invoke with `/architecting-slint-uis [feature-name] [phase]` where phase is one 
 ### Example Usage
 
 ```
-/architecting-slint-uis thermostat-control plan
-/architecting-slint-uis device-list build
-/architecting-slint-uis review
+/architecting-projection-uis thermostat-control plan
+/architecting-projection-uis device-list build
+/architecting-projection-uis review
 ```
 
 ## Architecture Principle

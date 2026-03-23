@@ -1,6 +1,6 @@
-# Architecting Slint UIs
+# Architecting Projection UIs
 
-A Claude Code skill for designing production-ready [Slint](https://slint.dev) UIs for embedded Elixir applications using the [Projection](https://github.com/one-raven/projection) framework.
+A Claude Code skill for designing production-ready [Projection](https://github.com/one-raven/projection) UIs — embedded Elixir applications rendered natively by [Slint](https://slint.dev).
 
 > **Elixir owns truth. Slint renders a projection of that truth. Rust bridges the two.**
 
@@ -12,14 +12,14 @@ A comprehensive Claude Code skill that guides you through architecting, building
 - **Slint** handles native rendering on embedded Linux displays
 - **Rust** bridges the two via length-prefixed JSON over stdio
 
-The skill encodes the Projection framework's patterns, the Slint language reference (focused on embedded), and production guardrails into a reusable `/architecting-slint-uis` command.
+The skill encodes the Projection framework's patterns, the Slint language reference (focused on embedded), and production guardrails into a reusable `/architecting-projection-uis` command.
 
 ## Installation
 
 Clone into a project that uses Projection, or into its own directory:
 
 ```bash
-git clone git@github.com:isaiahdw/architecting-slint-uis.git
+git clone git@github.com:isaiahdw/architecting-projection-uis.git
 ```
 
 The skill lives in `.claude/skills/slint-architect/` and is automatically discovered by Claude Code when working in this directory.
@@ -29,10 +29,10 @@ To use the skill in another project, copy the `.claude/skills/slint-architect/` 
 ## Usage
 
 ```
-/architecting-slint-uis                          # Plan phase (default)
-/architecting-slint-uis thermostat plan          # Design a specific feature
-/architecting-slint-uis device-list build        # Implementation guidance
-/architecting-slint-uis review                   # Architecture audit
+/architecting-projection-uis                          # Plan phase (default)
+/architecting-projection-uis thermostat plan          # Design a specific feature
+/architecting-projection-uis device-list build        # Implementation guidance
+/architecting-projection-uis review                   # Architecture audit
 ```
 
 ### Phases
