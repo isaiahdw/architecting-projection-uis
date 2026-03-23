@@ -16,15 +16,13 @@ The skill encodes the Projection framework's patterns, the Slint language refere
 
 ## Installation
 
-Clone into a project that uses Projection, or into its own directory:
+Install as a Claude Code plugin:
 
-```bash
-git clone git@github.com:isaiahdw/architecting-projection-uis.git
+```
+/plugin install https://github.com/isaiahdw/architecting-projection-uis
 ```
 
-The skill lives in `.claude/skills/slint-architect/` and is automatically discovered by Claude Code when working in this directory.
-
-To use the skill in another project, copy the `.claude/skills/slint-architect/` directory into that project's `.claude/skills/` folder.
+The skill is then available in all projects via `/architecting-projection-uis`.
 
 ## Usage
 
@@ -48,22 +46,23 @@ The skill also auto-triggers when conversations involve Slint UI design, Project
 ## What's Included
 
 ```
-.claude/skills/slint-architect/
-  SKILL.md                      Main skill — 3-phase workflow, schema mapping, intent protocol
-  architecture-patterns.md      Slint component hierarchy, layouts, colors, focus, fonts, debugging
-  elixir-integration.md         Projection API reference — all modules, callbacks, session lifecycle
-  best-practices.md             Guardrails, performance, accessibility, i18n, security, testing
-  handoff.md                    Onboarding guide, production checklist, troubleshooting
+.claude-plugin/plugin.json          Plugin manifest
+skills/architecting-projection-uis/
+  SKILL.md                          Main skill — 3-phase workflow, schema mapping, intent protocol
+  architecture-patterns.md          Slint component hierarchy, layouts, colors, focus, fonts, debugging
+  elixir-integration.md             Projection API reference — all modules, callbacks, session lifecycle
+  best-practices.md                 Guardrails, performance, accessibility, i18n, security, testing
+  handoff.md                        Onboarding guide, production checklist, troubleshooting
   adrs/
-    001-state-ownership.md      Elixir-authoritative state
+    001-state-ownership.md          Elixir-authoritative state
     002-communication-protocol.md   stdio + JSON framing
     003-patch-based-updates.md      RFC 6902 incremental updates
     004-screen-lifecycle.md         LiveView-inspired callbacks
     005-error-recovery.md           Automatic resync
   examples/
-    thermostat-screen.ex        Full Elixir screen with PubSub, async loading, intents
-    thermostat.slint            Corresponding Slint component for 480x320 embedded display
-    device-list-screen.ex       id_table example with row-level updates
+    thermostat-screen.ex            Full Elixir screen with PubSub, async loading, intents
+    thermostat.slint                Corresponding Slint component for 480x320 embedded display
+    device-list-screen.ex           id_table example with row-level updates
 ```
 
 ## Key Concepts
