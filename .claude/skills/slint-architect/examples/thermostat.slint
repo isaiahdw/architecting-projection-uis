@@ -1,0 +1,189 @@
+// Example: Thermostat screen for a 480x320 embedded display
+// Demonstrates: layout, conditional rendering, intent handling, animation
+
+import { Screen } from "screen.slint";
+
+component ModeButton inherits Rectangle {
+    in property <string> label: "";
+    in property <bool> active: false;
+    callback clicked();
+
+    width: 64px;
+    height: 32px;
+    border-radius: 4px;
+    background: root.active ? #335533 : (touch.has-hover ? #2a2a4a : #232342);
+
+    Text {
+        text: root.label;
+        font-size: 12px;
+        color: root.active ? #88ff88 : #cfcfe7;
+        horizontal-alignment: center;
+        vertical-alignment: center;
+    }
+
+    touch := TouchArea {
+        clicked => { root.clicked(); }
+    }
+}
+
+component TempButton inherits Rectangle {
+    in property <string> label: "";
+    callback clicked();
+
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    background: touch.has-hover ? #2a2a4a : #232342;
+
+    Text {
+        text: root.label;
+        font-size: 20px;
+        color: #cfcfe7;
+        horizontal-alignment: center;
+        vertical-alignment: center;
+    }
+
+    touch := TouchArea {
+        clicked => { root.clicked(); }
+    }
+}
+
+export component ThermostatScreen inherits Screen {
+    in property <string> title: "Thermostat";
+    in property <float> current_temp: 0.0;
+    in property <float> target_temp: 22.0;
+    in property <float> humidity: 0.0;
+    in property <string> mode: "off";
+    in property <bool> is_heating: false;
+    in property <bool> is_cooling: false;
+    in property <bool> schedule_active: false;
+    in property <string> status_text: "Initializing...";
+
+    padding: 12px;
+    spacing: 8px;
+
+    // Header
+    HorizontalLayout {
+        height: 24px;
+        Text {
+            text: root.title;
+            font-size: 16px;
+            font-weight: 700;
+            color: #f2f2ff;
+        }
+
+        Rectangle { }  // spacer
+
+        // Status indicator
+        Rectangle {
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background: root.is_heating ? #ff6644 :
+                        root.is_cooling ? #4488ff :
+                        root.mode == "off" ? #666688 : #44cc44;
+            animate background { duration: 300ms; }
+        }
+    }
+
+    // Current temperature (large display)
+    Rectangle {
+        height: 100px;
+        border-radius: 8px;
+        background: #232342;
+
+        VerticalLayout {
+            alignment: center;
+            spacing: 4px;
+
+            Text {
+                text: root.current_temp + " C";
+                font-size: 36px;
+                font-weight: 700;
+                color: #f2f2ff;
+                horizontal-alignment: center;
+            }
+
+            Text {
+                text: root.humidity + "% humidity";
+                font-size: 12px;
+                color: #b8b8d0;
+                horizontal-alignment: center;
+            }
+        }
+    }
+
+    // Target temperature controls
+    HorizontalLayout {
+        height: 48px;
+        alignment: center;
+        spacing: 24px;
+
+        TempButton {
+            label: "-";
+            clicked => { root.intent("thermostat.temp_down", ""); }
+        }
+
+        VerticalLayout {
+            alignment: center;
+            Text {
+                text: "Target";
+                font-size: 11px;
+                color: #666688;
+                horizontal-alignment: center;
+            }
+            Text {
+                text: root.target_temp + " C";
+                font-size: 18px;
+                font-weight: 600;
+                color: #d8d8f0;
+                horizontal-alignment: center;
+            }
+        }
+
+        TempButton {
+            label: "+";
+            clicked => { root.intent("thermostat.temp_up", ""); }
+        }
+    }
+
+    // Mode selector
+    HorizontalLayout {
+        height: 32px;
+        alignment: center;
+        spacing: 8px;
+
+        ModeButton {
+            label: "Off";
+            active: root.mode == "off";
+            clicked => { root.intent("thermostat.mode", "off"); }
+        }
+        ModeButton {
+            label: "Heat";
+            active: root.mode == "heat";
+            clicked => { root.intent("thermostat.mode", "heat"); }
+        }
+        ModeButton {
+            label: "Cool";
+            active: root.mode == "cool";
+            clicked => { root.intent("thermostat.mode", "cool"); }
+        }
+        ModeButton {
+            label: "Auto";
+            active: root.mode == "auto";
+            clicked => { root.intent("thermostat.mode", "auto"); }
+        }
+    }
+
+    // Status bar
+    Rectangle {
+        height: 1px;
+        background: #2a2a4a;
+    }
+
+    Text {
+        text: root.status_text;
+        font-size: 12px;
+        color: #b8b8d0;
+    }
+}
