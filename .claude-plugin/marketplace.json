@@ -1,16 +1,15 @@
 {
-  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "isaiahdw-architecting-projection-uis",
-  "description": "Skill for architecting production-ready Projection UIs — embedded Elixir applications rendered by Slint",
   "owner": {
     "name": "Isaiah"
   },
   "plugins": [
     {
       "name": "architecting-projection-uis",
+      "source": "./plugins/architecting-projection-uis",
       "description": "Designs and reviews production-ready Projection UIs for embedded Elixir applications rendered by Slint",
-      "source": ".",
-      "category": "development"
+      "category": "development",
+      "keywords": ["slint", "projection", "elixir", "embedded", "ui", "rust"]
     }
   ]
 }

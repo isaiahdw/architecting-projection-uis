@@ -27,12 +27,12 @@ Invoke with `/architecting-projection-uis [feature-name] [phase]` where phase is
 
 - **Slint docs:** https://docs.slint.dev/latest/docs/slint/
 - **Projection source:** https://github.com/one-raven/projection
-- **Skill files:** `skills/architecting-projection-uis/`
+- **Skill files:** `plugins/architecting-projection-uis/skills/architecting-projection-uis/`
 
 ## Skill File Structure
 
 ```
-skills/architecting-projection-uis/
+plugins/architecting-projection-uis/skills/architecting-projection-uis/
   SKILL.md                    # Main skill (phases, workflows, reference)
   architecture-patterns.md    # Slint component hierarchy and layout patterns
   elixir-integration.md       # Projection API, state management, protocol

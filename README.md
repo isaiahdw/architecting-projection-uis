@@ -47,23 +47,17 @@ The skill also auto-triggers when conversations involve Slint UI design, Project
 ## What's Included
 
 ```
-.claude-plugin/plugin.json          Plugin manifest
-skills/architecting-projection-uis/
-  SKILL.md                          Main skill — 3-phase workflow, schema mapping, intent protocol
-  architecture-patterns.md          Slint component hierarchy, layouts, colors, focus, fonts, debugging
-  elixir-integration.md             Projection API reference — all modules, callbacks, session lifecycle
-  best-practices.md                 Guardrails, performance, accessibility, i18n, security, testing
-  handoff.md                        Onboarding guide, production checklist, troubleshooting
-  adrs/
-    001-state-ownership.md          Elixir-authoritative state
-    002-communication-protocol.md   stdio + JSON framing
-    003-patch-based-updates.md      RFC 6902 incremental updates
-    004-screen-lifecycle.md         LiveView-inspired callbacks
-    005-error-recovery.md           Automatic resync
-  examples/
-    thermostat-screen.ex            Full Elixir screen with PubSub, async loading, intents
-    thermostat.slint                Corresponding Slint component for 480x320 embedded display
-    device-list-screen.ex           id_table example with row-level updates
+.claude-plugin/marketplace.json                               Marketplace catalog
+plugins/architecting-projection-uis/
+  .claude-plugin/plugin.json                                  Plugin manifest
+  skills/architecting-projection-uis/
+    SKILL.md                      Main skill — 3-phase workflow, schema mapping, intent protocol
+    architecture-patterns.md      Slint component hierarchy, layouts, colors, focus, fonts, debugging
+    elixir-integration.md         Projection API reference — all modules, callbacks, session lifecycle
+    best-practices.md             Guardrails, performance, accessibility, i18n, security, testing
+    handoff.md                    Onboarding guide, production checklist, troubleshooting
+    adrs/                         Architecture Decision Records (5 ADRs)
+    examples/                     Thermostat + device list examples (.ex + .slint)
 ```
 
 ## Key Concepts
